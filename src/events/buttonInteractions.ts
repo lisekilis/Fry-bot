@@ -1,13 +1,14 @@
 import { Buffer } from 'node:buffer';
 import process from 'node:process';
-import { EmbedBuilder, Events, type ButtonInteraction } from 'discord.js';
+import type { Interaction } from 'discord.js';
+import { EmbedBuilder, Events } from 'discord.js';
 import { getSettings } from '../util/cache.js';
 import type { Event } from './index.js';
 
-const interactionCreate: Event<Events.InteractionCreate> = {
+export default {
 	name: Events.InteractionCreate,
-	async execute(interaction: ButtonInteraction) {
-		if (!interaction.inCachedGuild()) return;
+	async execute(interaction: Interaction) {
+		if (!interaction.inCachedGuild() || !interaction.isButton()) return;
 
 		const { customId, message } = interaction;
 		const embed = message.embeds[0];
@@ -101,6 +102,4 @@ const interactionCreate: Event<Events.InteractionCreate> = {
 				break;
 		}
 	},
-};
-
-export default interactionCreate;
+} satisfies Event;

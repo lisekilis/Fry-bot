@@ -24,6 +24,7 @@ export default {
 		.addStringOption((option) =>
 			option.setName('username').setDescription('Override, defaults to your username').setRequired(false),
 		)
+		.setContexts(0)
 		.toJSON(),
 	async execute(interaction: ChatInputCommandInteraction) {
 		if (!interaction.inCachedGuild()) {

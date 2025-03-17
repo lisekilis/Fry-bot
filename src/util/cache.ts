@@ -8,7 +8,7 @@ export async function getSettings(guildId: string): Promise<Settings> {
 		return settingsCache.get(guildId);
 	}
 
-	const response = await fetch(`https://fry.api.lisekils.dev/settings/${guildId}`, {
+	const response = await fetch(`https://fry.api.lisekilis.dev/settings/${guildId}`, {
 		headers: {
 			Authorization: `Bearer ${process.env.FRY_API_TOKEN}`,
 		},
@@ -23,7 +23,7 @@ export async function getSettings(guildId: string): Promise<Settings> {
 }
 
 export async function patchSettings(guildId: string, updatedSettings: object): Promise<Settings> {
-	const response = await fetch(`https://fry.api.lisekils.dev/settings/${guildId}`, {
+	const response = await fetch(`https://fry.api.lisekilis.dev/settings/${guildId}`, {
 		method: 'PATCH',
 		headers: {
 			'Content-Type': 'application/json',

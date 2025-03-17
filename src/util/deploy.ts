@@ -13,3 +13,4 @@ const api = new API(rest);
 const result = await api.applicationCommands.bulkOverwriteGlobalCommands(process.env.APPLICATION_ID!, commandData);
 
 console.log(`Successfully registered ${result.length} commands.`);
+console.log(result);

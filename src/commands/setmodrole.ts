@@ -10,6 +10,7 @@ export default {
 		.addRoleOption((option) =>
 			option.setName('role').setDescription('The role to set as image moderator').setRequired(true),
 		)
+		.setContexts(0)
 		.toJSON(),
 	async execute(interaction: ChatInputCommandInteraction) {
 		if (!interaction.inCachedGuild()) {
